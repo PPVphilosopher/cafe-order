@@ -13,6 +13,12 @@ const App = () => {
     setAmount((prev) => prev.map((a, i) => (i === index ? a + 1 : a)))
   }
 
+  const onReset = () => {
+    if (window.confirm('Reset all count?')) {
+      setAmount(new Array(ALL_MENU.length).fill(0))
+    }
+  }
+
   const total = useMemo(
     () => ({
       amount: sum(amount),
@@ -34,7 +40,10 @@ const App = () => {
         ))}
       </div>
       <div className='App__summary'>
-        <div>Your bill</div>
+        <div className='App__summary__row'>
+          Your bill{' '}
+          {total.amount > 0 && <button onClick={onReset}>Reset</button>}
+        </div>
         <div className='App__summary__line' />
         <div>Items ordered : {total.amount}</div>
         <div>Total Price : {total.price} yen</div>
