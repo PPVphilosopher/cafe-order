@@ -7,13 +7,12 @@ type Props = Menu & {
 }
 
 export const MenuItem = ({ id, name, price, amount, onClick }: Props) => (
-  <div className='MenuItem'>
-    <button id={id} className='MenuItem__button' onClick={onClick}>
-      <span>{name}</span>
-      <span>{price} yen</span>
-    </button>
+  <button id={id} className='MenuItem' onClick={onClick}>
+    <span>{name}</span>
+    <span>{price} yen</span>
+
     <div id={`${id}-count`} className='MenuItem__count'>
       {amount}
     </div>
-  </div>
+  </button>
 )
