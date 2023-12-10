@@ -1,2 +1,9 @@
 .App {
+  padding: 40px;
+
+  &__menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }
