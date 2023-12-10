@@ -10,7 +10,12 @@
   font-size: inherit;
   cursor: pointer;
 
-  &__count {
+  --minus-display: none;
+  &:hover {
+    --minus-display: block;
+  }
+
+  &__badge {
     position: absolute;
     top: -10px;
     right: -20px;
@@ -23,5 +28,12 @@
     border-radius: 15px;
     background-color: red;
     color: white;
+
+    &--minus {
+      display: var(--minus-display);
+      top: unset;
+      bottom: -10px;
+      background-color: cornflowerblue;
+    }
   }
 }

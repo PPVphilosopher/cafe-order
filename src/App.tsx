@@ -9,8 +9,12 @@ const App = () => {
     new Array(ALL_MENU.length).fill(0)
   )
 
-  const onMenuClick = (index: number) => {
-    setAmount((prev) => prev.map((a, i) => (i === index ? a + 1 : a)))
+  const onSetAmount = (index: number, value: number) => {
+    setAmount((prev) => {
+      const newValue = [...prev]
+      newValue[index] = Math.max(value, 0)
+      return newValue
+    })
   }
 
   const onReset = () => {
@@ -35,7 +39,7 @@ const App = () => {
             key={menu.name}
             {...menu}
             amount={amount[i]}
-            onClick={() => onMenuClick(i)}
+            onSetAmount={(value) => onSetAmount(i, value)}
           />
         ))}
       </div>
