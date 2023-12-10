@@ -1,0 +1,39 @@
+.MenuItem {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: white;
+  box-shadow: 0px 0px 10px 10px rgba(0, 0, 0, 0.1);
+  font-size: inherit;
+  cursor: pointer;
+
+  --minus-display: none;
+  &:hover {
+    --minus-display: block;
+  }
+
+  &__badge {
+    position: absolute;
+    top: -10px;
+    right: -20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    min-width: 26px;
+    height: 26px;
+    border-radius: 15px;
+    background-color: red;
+    color: white;
+
+    &--minus {
+      display: var(--minus-display);
+      top: unset;
+      bottom: -10px;
+      background-color: cornflowerblue;
+    }
+  }
+}
